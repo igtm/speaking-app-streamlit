@@ -7,8 +7,11 @@ import streamlit.components.v1 as components
 from io import BytesIO
 import numpy as np
 
-
-client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
+if "OPENAI_API_KEY" in st.secrets:
+    client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
+else:
+    if api_key := st.text_input("Enter your OpenAI API Key", type="password"):
+        client = OpenAI(api_key=api_key)
 
 
 system_prompt = """
