@@ -3,10 +3,10 @@ import { Streamlit } from "streamlit-component-lib";
 
 let mimeType = "audio/webm";
 if (!MediaRecorder.isTypeSupported("audio/webm")) {
-  if (MediaRecorder.isTypeSupported("audio/mp4")) {
-    mimeType = "audio/mp4";
+  if (MediaRecorder.isTypeSupported("audio/mp3")) {
+    mimeType = "audio/mp3";
   } else {
-    alert("both audio/webm and audio/mp4 are not supported");
+    alert("both audio/webm and audio/mp3 are not supported");
   }
 }
 
