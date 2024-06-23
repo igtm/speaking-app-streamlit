@@ -144,18 +144,19 @@ def main():
         # Record audio
         wav_audio_data = audio_recorder_component()
 
-    chat_ui()
+    with st.container(height=400):
+        chat_ui()
 
-    if (
-        wav_audio_data is not None
-        and len(wav_audio_data) > 100
-        and len(wav_audio_data) < 10000000
-    ):
-        # Convert audio to text using OpenAI Whisper API
-        transcript = transcribe_audio_to_text(wav_audio_data)
+        if (
+            wav_audio_data is not None
+            and len(wav_audio_data) > 100
+            and len(wav_audio_data) < 10000000
+        ):
+            # Convert audio to text using OpenAI Whisper API
+            transcript = transcribe_audio_to_text(wav_audio_data)
 
-        # chat
-        send_chat(transcript)
+            # chat
+            send_chat(transcript)
 
 
 if __name__ == "__main__":
