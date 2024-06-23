@@ -2,8 +2,7 @@ import "./style.css";
 import { Streamlit } from "streamlit-component-lib";
 
 if (!MediaRecorder.isTypeSupported("audio/webm")) {
-  // <2>
-  console.warn("audio/webm is not supported");
+  alert("audio/webm is not supported");
 }
 
 const buttonStart = document.querySelector("#buttonStart");
