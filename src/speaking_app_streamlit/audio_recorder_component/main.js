@@ -1,8 +1,13 @@
 import "./style.css";
 import { Streamlit } from "streamlit-component-lib";
 
+let mimeType = "audio/webm";
 if (!MediaRecorder.isTypeSupported("audio/webm")) {
-  alert("audio/webm is not supported");
+  if (MediaRecorder.isTypeSupported("audio/mp4")) {
+    mimeType = "audio/mp4";
+  } else {
+    alert("both audio/webm and audio/mp4 are not supported");
+  }
 }
 
 const buttonStart = document.querySelector("#buttonStart");
@@ -21,7 +26,7 @@ buttonStart.addEventListener("click", async () => {
       alert(error);
     });
   const mediaRecorder = new MediaRecorder(stream, {
-    mimeType: "audio/webm",
+    mimeType: mimeType,
   });
   mediaRecorder.start();
 
