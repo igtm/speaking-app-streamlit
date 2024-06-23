@@ -1,0 +1,30 @@
+[project]
+name = "speaking-app-streamlit"
+version = "0.1.0"
+description = "Add your description here"
+authors = [
+    { name = "igtm", email = "github@igtm.link" }
+]
+dependencies = [
+    "streamlit>=1.36.0",
+    "openai>=1.35.3",
+    "numpy>=2.0.0",
+]
+readme = "README.md"
+requires-python = ">= 3.8"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.rye]
+managed = true
+dev-dependencies = [
+    "ruff>=0.4.10",
+]
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/speaking_app_streamlit"]
