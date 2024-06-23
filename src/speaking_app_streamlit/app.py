@@ -7,6 +7,7 @@ import streamlit.components.v1 as components
 from io import BytesIO
 import numpy as np
 
+client = None
 if "OPENAI_API_KEY" in st.secrets:
     client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
 else:
