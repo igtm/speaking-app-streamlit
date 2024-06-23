@@ -111,7 +111,7 @@ def send_chat(input):
             messages=[{"role": "system", "content": system_prompt}]
             + [
                 {"role": m["role"], "content": m["content"]}
-                for m in st.session_state.messages
+                for m in st.session_state.messages[-9:]
             ],
             stream=True,
         )
