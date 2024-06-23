@@ -12,10 +12,14 @@ const buttonCancel = document.querySelector("#buttonCancel");
 
 buttonStart.addEventListener("click", async () => {
   Streamlit.setComponentValue("");
-  const stream = await navigator.mediaDevices.getUserMedia({
-    video: false,
-    audio: true,
-  });
+  const stream = await navigator.mediaDevices
+    .getUserMedia({
+      video: false,
+      audio: true,
+    })
+    .catch((error) => {
+      alert(error);
+    });
   const mediaRecorder = new MediaRecorder(stream, {
     mimeType: "audio/webm",
   });
