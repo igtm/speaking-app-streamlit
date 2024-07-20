@@ -107,7 +107,7 @@ def send_chat(input):
 
     with st.chat_message("assistant"):
         stream = client.chat.completions.create(
-            model="gpt-4o",
+            model="gpt-4o-mini",
             messages=[{"role": "system", "content": system_prompt}]
             + [
                 {"role": m["role"], "content": m["content"]}
@@ -125,7 +125,7 @@ def send_chat(input):
 
 # Example usage with Streamlit:
 def main():
-    st.title("English Conversation with GPT-4o")
+    st.title("English Conversation with GPT-4o-mini")
 
     if "messages" not in st.session_state:
         st.session_state.messages = []
